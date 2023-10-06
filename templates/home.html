@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="login">
+    <h1>Datascope Employee Turnover Predictor</h1>
+
+    <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Employee Turnover Prediction</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Promoted (0 or 1)</label>
+            <input class="form-control" type="number" name="promoted"
+                placeholder="Promotion Situation" min='0' max='1' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Review (0 to 1)</label>
+            <input class="form-control" type="number" name="review"
+                placeholder="Employee Review" min='0' max='1' step="0.01" />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Projects </label>
+            <input class="form-control" type="number" name="projects"
+                placeholder="Project count" min='0' max='999' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Salary (0, 1, 2)</label>
+            <input class="form-control" type="number" name="salary"
+                placeholder="Salary level" min='0' max='2' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Tenure</label>
+            <input class="form-control" type="number" name="tenure"
+                placeholder="Tenure" min='0' max='20' step="1.0"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Satisfaction (0 to 1)</label>
+            <input class="form-control" type="number" name="satisfaction"
+                placeholder="Satisfaction score" min='0' max='1' step="0.01"/>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Bonus (0 or 1)</label>
+            <input class="form-control" type="number" name="bonus"
+                placeholder="Bonus Situation" min='0' max='1' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Average_Hours/Month</label>
+            <input class="form-control" type="number" name="avg_hrs_month"
+                placeholder="Hours" min='0' max='999' step="0.01"/>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Turnover Situation" required />
+        </div>
+    </form>
+    <h2>
+    The employee will {{result}}
+    </h2>
+<body>
+</html>
